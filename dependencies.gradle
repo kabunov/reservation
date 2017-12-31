@@ -1,0 +1,76 @@
+ext {
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
+
+    androidVersionCode = 1
+    androidVersionName = "1.0"
+
+
+    supportVersion = '27.0.1'
+    butterknifeVersion = '8.8.1'
+    daggerVersion = '2.13'
+    rxandroidVersion = '2.0.1'
+    rxjavaVersion = '2.1.5'
+    lombokVersion = '1.16.18'
+    retrofit2Version = '2.3.0'
+    junitVersion = '4.12'
+    mockitoVersion = '2.7.7'
+
+    appDependencies = [
+            daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger             : "com.google.dagger:dagger:${daggerVersion}",
+
+            butterknife        : "com.jakewharton:butterknife:${butterknifeVersion}",
+            butterknifeCompiler: "com.jakewharton:butterknife-compiler:${butterknifeVersion}",
+
+            appcompat          : "com.android.support:appcompat-v7:${supportVersion}",
+            design             : "com.android.support:design:${supportVersion}",
+            support            : "com.android.support:support-v4:${supportVersion}",
+            constraint         : 'com.android.support.constraint:constraint-layout:1.0.2',
+            annotations        : "com.android.support:support-annotations:${supportVersion}",
+
+            rxandroid          : "io.reactivex.rxjava2:rxandroid:${rxandroidVersion}",
+            rxjava             : "io.reactivex.rxjava2:rxjava:${rxjavaVersion}",
+
+            lombok             : "org.projectlombok:lombok:${lombokVersion}",
+
+            junit            : "junit:junit:$junitVersion",
+            mockito          : "org.mockito:mockito-core:$mockitoVersion"
+    ]
+
+    domainDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger        : "com.google.dagger:dagger:${daggerVersion}",
+
+            annotations   : "com.android.support:support-annotations:${supportVersion}",
+
+            rxandroid     : "io.reactivex.rxjava2:rxandroid:${rxandroidVersion}",
+            rxjava        : "io.reactivex.rxjava2:rxjava:${rxjavaVersion}",
+
+            lombok        : "org.projectlombok:lombok:${lombokVersion}",
+
+            junit         : "junit:junit:$junitVersion",
+            mockito       : "org.mockito:mockito-core:$mockitoVersion"
+    ]
+
+    dataDependencies = [
+            daggerCompiler   : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger           : "com.google.dagger:dagger:${daggerVersion}",
+
+            annotations      : "com.android.support:support-annotations:${supportVersion}",
+
+            rxandroid        : "io.reactivex.rxjava2:rxandroid:${rxandroidVersion}",
+            rxjava           : "io.reactivex.rxjava2:rxjava:${rxjavaVersion}",
+
+            lombok           : "org.projectlombok:lombok:${lombokVersion}",
+
+            retrofit         : "com.squareup.retrofit2:retrofit:$retrofit2Version",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:$retrofit2Version",
+            retrofitRx       : "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version",
+
+            junit            : "junit:junit:$junitVersion",
+            mockito          : "org.mockito:mockito-core:$mockitoVersion"
+    ]
+
+}

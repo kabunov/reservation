@@ -1,8 +1,22 @@
 apply plugin: 'java-library'
 
 dependencies {
+    def domainDependencies = rootProject.ext.domainDependencies
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation domainDependencies.dagger
+
+    implementation domainDependencies.lombok
+
+    implementation domainDependencies.annotations
+
+    implementation domainDependencies.rxjava
+    implementation domainDependencies.rxandroid
+
+    testImplementation dataDependencies.junit
+    testImplementation dataDependencies.mockito
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
