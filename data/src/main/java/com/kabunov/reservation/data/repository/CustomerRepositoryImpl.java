@@ -39,6 +39,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Observable<List<Customer>> searchCustomers(String searchQuery) {
-        return null;
+        return mLocalDataSource.searchCustomers(searchQuery)
+                .map(customers -> mDataConverter.convertCustomers(customers));
     }
 }

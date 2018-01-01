@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -89,6 +92,32 @@ public class CustomersActivity extends BaseActivity implements CustomersView {
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.destroy();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.customers_menu, menu);
+
+        MenuItem myActionMenuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) myActionMenuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mPresenter.onSearch(query);
+                if (!searchView.isIconified()) {
+                    searchView.setIconified(true);
+                }
+                myActionMenuItem.collapseActionView();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                mPresenter.onSearch(s);
+                return false;
+            }
+        });
+        return true;
     }
 
     @OnClick(R.id.try_again_button)
