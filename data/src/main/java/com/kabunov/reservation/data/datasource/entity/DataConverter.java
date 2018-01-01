@@ -36,13 +36,13 @@ public class DataConverter {
     public List<Table> convertTables(@NonNull List<Boolean> tableReservations) {
         List<Table> res = new ArrayList<>(tableReservations.size());
         for (int i = 0; i < tableReservations.size(); i++) {
-            Boolean reserved = tableReservations.get(i);
-            if (reserved == null) {
+            Boolean available = tableReservations.get(i);
+            if (available == null) {
                 continue;
             }
             Table table = new Table();
             table.setId(i);
-            table.setReserved(reserved);
+            table.setReserved(!available);
             res.add(table);
         }
         return res;
