@@ -32,6 +32,16 @@
             android:configChanges="orientation"
             android:label="@string/tables_screen_title"
             android:screenOrientation="portrait"/>
+
+        <receiver android:name=".ui.alarm.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.kabunov.reservation.ALARM_ACTION"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".ui.alarm.AlarmService"
+            android:enabled="true"/>
     </application>
 
 </manifest>

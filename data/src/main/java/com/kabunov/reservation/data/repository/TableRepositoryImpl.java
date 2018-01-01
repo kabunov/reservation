@@ -44,6 +44,6 @@ public class TableRepositoryImpl implements TableRepository {
 
     @Override
     public Observable<Void> clearReservations() {
-        return null;
+        return mLocalDataSource.clearReservations();
     }
 }

@@ -48,6 +48,17 @@ public class LocalTableDataSource implements TableDataSource {
 
     @Override
     public Observable<Void> clearReservations() {
-        throw new UnsupportedOperationException("Remote operation is not available");
+        return Observable.create(subscriber -> {
+            try {
+                List<Boolean> tables = mLocalStorage.getTables();
+                for (int i = 0; i < tables.size(); i++) {
+                    tables.set(i, true);
+                }
+                mLocalStorage.saveTables(tables);
+                subscriber.onComplete();
+            } catch (Exception e) {
+                subscriber.onError(e);
+            }
+        });
     }
 }

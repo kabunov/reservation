@@ -42,6 +42,10 @@ public class MainActivity extends BaseActivity implements MainView {
         setSupportActionBar(mToolbar);
 
         mPresenter.setView(this);
+
+        //when we open this activity after table reservation, we add a claer task flag
+        boolean openedFirstTime = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_CLEAR_TASK) == 0;
+        mPresenter.onViewReady(openedFirstTime);
     }
 
     @Override

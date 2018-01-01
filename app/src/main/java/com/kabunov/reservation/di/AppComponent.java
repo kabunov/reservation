@@ -1,5 +1,6 @@
 package com.kabunov.reservation.di;
 
+import com.kabunov.reservation.ui.alarm.AlarmService;
 import com.kabunov.reservation.ui.customers.view.CustomersActivity;
 import com.kabunov.reservation.ui.main.view.MainActivity;
 import com.kabunov.reservation.ui.table.view.TableListFragment;
@@ -20,4 +21,6 @@ public interface AppComponent {
     void injectTablesActivity(TableSelectActivity activity);
 
     void injectTableListFragment(TableListFragment fragment);
+
+    void injectAlarmService(AlarmService service);
 }
