@@ -1,5 +1,6 @@
 package com.kabunov.reservation.data;
 
+import com.kabunov.reservation.data.datasource.local.LocalStorage;
 import com.kabunov.reservation.data.datasource.remote.RemoteCustomerDataSource;
 import com.kabunov.reservation.data.datasource.remote.RemoteTableDataSource;
 import com.kabunov.reservation.data.datasource.remote.api.RestApi;
@@ -10,6 +11,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
+
+import io.reactivex.Observable;
+
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -21,10 +27,16 @@ public class RemoteDataSourceUnitTest {
     @Mock
     private RestApi mMockRestApi;
 
+    @Mock
+    private LocalStorage mMockLocalStorage;
+
     @Before
     public void init() {
-        mRemoteCustomerDataSource = new RemoteCustomerDataSource(mMockRestApi);
-        mRemoteTableDataSource = new RemoteTableDataSource(mMockRestApi);
+        mRemoteCustomerDataSource = new RemoteCustomerDataSource(mMockRestApi, mMockLocalStorage);
+        mRemoteTableDataSource = new RemoteTableDataSource(mMockRestApi, mMockLocalStorage);
+
+        given(mMockRestApi.getCustomers()).willReturn(Observable.just(new ArrayList<>()));
+        given(mMockRestApi.getTables()).willReturn(Observable.just(new ArrayList<>()));
     }
 
     @Test
