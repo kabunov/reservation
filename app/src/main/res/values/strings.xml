@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Reservation</string>
+
+    <string name="main_reserve_button">Reserve a table</string>
+
+    <string name="customers_screen_title">Choose a customer</string>
+
+    <string name="tables_screen_title">Choose a table</string>
+    <string name="tables_available">Free</string>
+    <string name="tables_unavailable">Reserved</string>
+    <string name="tables_reserved_warning">This table has already reserved</string>
+    <string name="tables_reserve_error">An error occurred diring reservation</string>
+    <string name="tables_reserve_success">The table is successfully reserved</string>
+
+    <string name="common_error_try_again_message">Something went wrong. Please try again</string>
+    <string name="common_error_try_again_btn_text">Try again</string>
+    <string name="common_no_data">No data</string>
+
+    <string name="no_internet_error">No connection to load the initial data</string>
 </resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/customer_list_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/one_point">
+
+        <com.kabunov.reservation.ui.customers.view.ListItemCircleIcon
+            android:id="@+id/customer_list_item_icon"
+            android:layout_width="@dimen/list_item_circle_icon_size"
+            android:layout_height="@dimen/list_item_circle_icon_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/one_point"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="@dimen/two_point"
+            android:layout_marginTop="@dimen/two_point"
+            android:layout_marginBottom="@dimen/two_point"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/customer_list_item_header"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <View
+        style="@style/ListDivider"/>
+
+</LinearLayout>

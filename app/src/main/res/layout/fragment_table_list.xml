@@ -1,0 +1,30 @@
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kabunov.reservation.ui.table.view.TableListFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tables_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"/>
+
+        <include
+            layout="@layout/layout_no_data"/>
+
+        <include
+            layout="@layout/layout_try_again"/>
+
+        <include
+            layout="@layout/layout_progress_bar"/>
+
+    </FrameLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
