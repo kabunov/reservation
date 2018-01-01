@@ -35,8 +35,8 @@ ext {
 
             lombok             : "org.projectlombok:lombok:${lombokVersion}",
 
-            junit            : "junit:junit:$junitVersion",
-            mockito          : "org.mockito:mockito-core:$mockitoVersion"
+            junit              : "junit:junit:$junitVersion",
+            mockito            : "org.mockito:mockito-core:$mockitoVersion"
     ]
 
     domainDependencies = [

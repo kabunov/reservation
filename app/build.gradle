@@ -6,7 +6,7 @@ android {
     compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
 
     defaultConfig {
-        applicationId "com.linguinarium.irregularverbs"
+        applicationId "com.kabunov.reservation"
 
         minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
         targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
@@ -16,6 +16,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         setProperty("archivesBaseName", "reservation-$versionName")
+
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
