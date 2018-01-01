@@ -9,14 +9,13 @@ import com.kabunov.reservation.application.App;
 import com.kabunov.reservation.domain.interactor.ClearReservationsInteractor;
 import com.kabunov.reservation.domain.interactor.base.DefaultObserver;
 
-import java.util.Timer;
-
 import javax.inject.Inject;
 
 
+/**
+ * Service to call Clear Reservations interactor
+ */
 public final class AlarmService extends IntentService {
-
-    private Timer mCountDownTimer = new Timer();
 
     public AlarmService() {
         super("AlarmService");
@@ -29,8 +28,7 @@ public final class AlarmService extends IntentService {
     AlarmHelper mAlarmHelper;
 
     static Intent createIntent(final Context context) {
-        final Intent intent = new Intent(context, AlarmService.class);
-        return intent;
+        return new Intent(context, AlarmService.class);
     }
 
     @Override

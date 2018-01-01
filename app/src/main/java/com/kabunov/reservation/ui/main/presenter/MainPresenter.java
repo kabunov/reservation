@@ -18,6 +18,8 @@ public class MainPresenter extends BasePresenter<MainView> {
     }
 
     public void onViewReady(boolean openedFirstTime) {
+        //now the app schedules Clear reservations event each time when the app is opens (15 min from now)
+        //possible optimisation is to store previous scheduled time and calculate remaining time here
         if (openedFirstTime) {
             mAlarmHelper.scheduleClearReservations();
         }

@@ -16,6 +16,9 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
+/**
+ * Some of the methods available for remote and local data, some - only local
+ */
 @Singleton
 public class TableRepositoryImpl implements TableRepository {
 
@@ -30,6 +33,9 @@ public class TableRepositoryImpl implements TableRepository {
         mDataConverter = dataConverter;
     }
 
+    /**
+     * Tries to load local data, if it doesn't exist, calls remote data source and stores the result locally
+     */
     @Override
     public Observable<List<Table>> getTables() {
         return mLocalDataSource.getTables()
@@ -37,11 +43,17 @@ public class TableRepositoryImpl implements TableRepository {
                 .map(tableReservations -> mDataConverter.convertTables(tableReservations));
     }
 
+    /**
+     * Stores reservation data locally (since no remote api for this)
+     */
     @Override
     public Observable<Void> reserve(int consumerId, int tableId) {
         return mLocalDataSource.reserve(consumerId, tableId);
     }
 
+    /**
+     * Clears all the reservation data locally (since no remote api for this)
+     */
     @Override
     public Observable<Void> clearReservations() {
         return mLocalDataSource.clearReservations();

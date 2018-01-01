@@ -13,16 +13,16 @@ public final class PreferencesManager {
     private Context mContext;
 
     @Inject
-    public PreferencesManager(@NonNull Context context) {
+    PreferencesManager(@NonNull Context context) {
         mContext = context;
     }
 
-    public String getValue(final String fileName, final String key) {
+    String getValue(final String fileName, final String key) {
 
         return getPreferences(fileName).getString(key, "");
     }
 
-    public void putValue(final String fileName, final String key, final Object value) {
+    void putValue(final String fileName, final String key, final Object value) {
 
         final SharedPreferences.Editor editor = getPreferences(fileName).edit();
         if (value instanceof Long) {

@@ -27,8 +27,14 @@ public class CustomersPresenter extends BasePresenter<CustomersView> {
     private SearchCustomersInteractor mSearchCustomersInteractor;
     private CustomerViewModelConverter mViewModelConverter;
 
+    /**
+     * When user closes the search, the stored data is shown (not to load all the data again)
+     */
     private List<CustomerViewModel> mAllData;
 
+    /**
+     * To avoid calling api lots of time while users types on search view
+     */
     private BehaviorSubject<String> mSearchDebouncer = BehaviorSubject.create();
 
     @Inject

@@ -28,6 +28,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * A fragment to show list of tables
+ */
 public class TableListFragment extends Fragment implements TableListView {
 
     @BindView(R.id.tables_list)

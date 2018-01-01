@@ -18,6 +18,7 @@ public class CustomerViewModelConverter {
 
     public CustomerViewModel convertCustomer(Customer customer) {
 
+        //first letter of first or last name
         String firstLetter = "";
         if (!TextUtils.isEmpty(customer.getLastName())) {
             firstLetter = customer.getLastName().substring(0, 1);

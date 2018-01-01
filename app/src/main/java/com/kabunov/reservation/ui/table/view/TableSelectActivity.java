@@ -28,8 +28,6 @@ public class TableSelectActivity extends BaseActivity implements TableSelectView
     @Inject
     TableSelectPresenter mPresenter;
 
-    private TablesAdapter mAdapter;
-
     public static void start(Activity activity, int customerId) {
         Intent intent = new Intent(activity, TableSelectActivity.class);
         intent.putExtra(EXTRA_CUSTOMER_ID, customerId);

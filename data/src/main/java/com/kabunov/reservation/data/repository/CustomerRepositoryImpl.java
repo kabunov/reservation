@@ -16,6 +16,9 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
+/**
+ * Some of the methods available for remote and local data, some - only local
+ */
 @Singleton
 public class CustomerRepositoryImpl implements CustomerRepository {
 
@@ -30,6 +33,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         mDataConverter = dataConverter;
     }
 
+    /**
+     * Tries to load local data, if it doesn't exist, calls remote data source and stores the result locally
+     */
     @Override
     public Observable<List<Customer>> getCustomers() {
         return mLocalDataSource.getCustomers()
@@ -37,6 +43,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 .map(customers -> mDataConverter.convertCustomers(customers));
     }
 
+    /**
+     * Search local stored customers (since no remote api for search)
+     */
     @Override
     public Observable<List<Customer>> searchCustomers(String searchQuery) {
         return mLocalDataSource.searchCustomers(searchQuery)

@@ -10,6 +10,10 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+/**
+ * Helper to schedule repeated action.
+ * By requirements the app needs to clear reservations every 15 min, even is the app is closed
+ */
 public class AlarmHelper {
 
     private static final String ALARM_ACTION = "com.kabunov.reservation.ALARM_ACTION";

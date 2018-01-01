@@ -10,6 +10,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+/**
+ * To convert Data layer entities to Domain layer entities
+ */
 public class DataConverter {
 
     @Inject
