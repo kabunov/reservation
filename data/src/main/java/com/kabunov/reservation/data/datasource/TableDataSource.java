@@ -8,7 +8,7 @@ public interface TableDataSource {
 
     Observable<List<Boolean>> getTables();
 
-    Observable<Void> reserve(int tableId);
+    Observable<Void> reserve(int consumerId, int tableId);
 
     Observable<Void> clearReservations();
 }

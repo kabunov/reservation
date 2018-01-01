@@ -4,7 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.kabunov.reservation.data.datasource.TableDataSource;
 import com.kabunov.reservation.data.datasource.entity.DataConverter;
-import com.kabunov.reservation.data.utils.ConnectivityUtil;
+import com.kabunov.reservation.data.datasource.local.LocalTableDataSource;
+import com.kabunov.reservation.data.datasource.remote.RemoteTableDataSource;
 import com.kabunov.reservation.domain.entity.Table;
 import com.kabunov.reservation.domain.repository.TableRepository;
 
@@ -18,14 +19,12 @@ import io.reactivex.Observable;
 @Singleton
 public class TableRepositoryImpl implements TableRepository {
 
-    private  ConnectivityUtil mConnectivityUtil;
-    private  TableDataSource mRemoteDataSource;
-    private  TableDataSource mLocalDataSource;
+    private TableDataSource mRemoteDataSource;
+    private TableDataSource mLocalDataSource;
     private DataConverter mDataConverter;
 
     @Inject
-    public TableRepositoryImpl(@NonNull ConnectivityUtil connectivityUtil, @NonNull TableDataSource remoteDataSource, @NonNull TableDataSource localDataSource, @NonNull DataConverter dataConverter) {
-        mConnectivityUtil = connectivityUtil;
+    public TableRepositoryImpl(@NonNull RemoteTableDataSource remoteDataSource, @NonNull LocalTableDataSource localDataSource, @NonNull DataConverter dataConverter) {
         mRemoteDataSource = remoteDataSource;
         mLocalDataSource = localDataSource;
         mDataConverter = dataConverter;
@@ -33,14 +32,14 @@ public class TableRepositoryImpl implements TableRepository {
 
     @Override
     public Observable<List<Table>> getTables() {
-        return (mConnectivityUtil.isConnected() ? mRemoteDataSource : mLocalDataSource)
-                .getTables()
+        return mLocalDataSource.getTables()
+                .onErrorResumeNext(mRemoteDataSource.getTables())
                 .map(tableReservations -> mDataConverter.convertTables(tableReservations));
     }
 
     @Override
-    public Observable<Table> reserve(int tableId) {
-        return null;
+    public Observable<Void> reserve(int consumerId, int tableId) {
+        return mLocalDataSource.reserve(consumerId, tableId);
     }
 
     @Override

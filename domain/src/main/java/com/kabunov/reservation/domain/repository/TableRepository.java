@@ -10,7 +10,7 @@ public interface TableRepository {
 
     Observable<List<Table>> getTables();
 
-    Observable<Table> reserve(int tableId);
+    Observable<Void> reserve(int consumerId, int tableId);
 
     Observable<Void> clearReservations();
 }
