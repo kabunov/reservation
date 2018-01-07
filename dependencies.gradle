@@ -16,6 +16,7 @@ ext {
     retrofit2Version = '2.3.0'
     junitVersion = '4.12'
     mockitoVersion = '2.7.7'
+    testRunnerVersion = '1.0.1'
 
     appDependencies = [
             daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
@@ -36,7 +37,9 @@ ext {
             lombok             : "org.projectlombok:lombok:${lombokVersion}",
 
             junit              : "junit:junit:$junitVersion",
-            mockito            : "org.mockito:mockito-core:$mockitoVersion"
+            mockito            : "org.mockito:mockito-core:$mockitoVersion",
+            testRunner         : "com.android.support.test:runner:$testRunnerVersion",
+            espresso           : "com.android.support.test.espresso:espresso-core:3.0.1"
     ]
 
     domainDependencies = [
@@ -70,7 +73,8 @@ ext {
             retrofitRx       : "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version",
 
             junit            : "junit:junit:$junitVersion",
-            mockito          : "org.mockito:mockito-core:$mockitoVersion"
+            mockito          : "org.mockito:mockito-core:$mockitoVersion",
+            testRunner       : "com.android.support.test:runner:$testRunnerVersion"
     ]
 
 }

@@ -53,4 +53,6 @@ dependencies {
 
     testImplementation dataDependencies.junit
     testImplementation dataDependencies.mockito
+
+    androidTestImplementation dataDependencies.testRunner
 }

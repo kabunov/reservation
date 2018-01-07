@@ -58,9 +58,9 @@ dependencies {
     implementation appDependencies.rxjava
     implementation appDependencies.rxandroid
 
-    testImplementation dataDependencies.junit
-    testImplementation dataDependencies.mockito
+    testImplementation appDependencies.junit
+    testImplementation appDependencies.mockito
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation appDependencies.testRunner
+    androidTestImplementation appDependencies.espresso
 }
