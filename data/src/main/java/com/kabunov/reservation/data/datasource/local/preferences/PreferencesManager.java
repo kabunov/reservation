@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 
 import javax.inject.Inject;
 
-public final class PreferencesManager {
+public class PreferencesManager {
 
     private Context mContext;
 
@@ -38,7 +38,7 @@ public final class PreferencesManager {
     }
 
 
-    public void removeValue(final String fileName, final String key) {
+    void removeValue(final String fileName, final String key) {
 
         final SharedPreferences.Editor editor = getPreferences(fileName).edit();
         editor.remove(key);

@@ -1,8 +1,6 @@
-package com.kabunov.reservation.data;
+package com.kabunov.reservation.data.datasource.remote;
 
 import com.kabunov.reservation.data.datasource.local.LocalStorage;
-import com.kabunov.reservation.data.datasource.remote.RemoteCustomerDataSource;
-import com.kabunov.reservation.data.datasource.remote.RemoteTableDataSource;
 import com.kabunov.reservation.data.datasource.remote.api.RestApi;
 
 import org.junit.Before;

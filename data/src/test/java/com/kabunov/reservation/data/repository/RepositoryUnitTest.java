@@ -1,12 +1,10 @@
-package com.kabunov.reservation.data;
+package com.kabunov.reservation.data.repository;
 
 import com.kabunov.reservation.data.datasource.entity.DataConverter;
 import com.kabunov.reservation.data.datasource.local.LocalCustomerDataSource;
 import com.kabunov.reservation.data.datasource.local.LocalTableDataSource;
 import com.kabunov.reservation.data.datasource.remote.RemoteCustomerDataSource;
 import com.kabunov.reservation.data.datasource.remote.RemoteTableDataSource;
-import com.kabunov.reservation.data.repository.CustomerRepositoryImpl;
-import com.kabunov.reservation.data.repository.TableRepositoryImpl;
 
 import org.junit.Before;
 import org.junit.Test;

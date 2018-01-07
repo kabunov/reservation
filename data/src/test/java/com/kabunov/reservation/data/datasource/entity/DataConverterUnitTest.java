@@ -1,7 +1,5 @@
-package com.kabunov.reservation.data;
+package com.kabunov.reservation.data.datasource.entity;
 
-import com.kabunov.reservation.data.datasource.entity.CustomerData;
-import com.kabunov.reservation.data.datasource.entity.DataConverter;
 import com.kabunov.reservation.domain.entity.Customer;
 
 import org.junit.Before;
