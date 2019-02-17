@@ -1,4 +1,4 @@
-# reservation
+# Reservations App Example
 
 An application to make reservations in a restaurant.
 
